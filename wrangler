@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CONFIG_DIR=$HOME/.config/wrangler
+
+mkdir -p $CONFIG_DIR
+
+docker run --rm -it \
+    -v $CONFIG_DIR:/home/node/.wrangler/config \
+    -v $(pwd):/home/node/app \
+    mikegeorgeff/wrangler "$@"
